@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shortcut to w3schools</title>
+        <style>
+            h1 {
+                text-align: center;
+                font-size: 40px;
+            }
+
+            .links {
+                width: 50%;
+                margin: 0 auto;
+            }
+
+            .links a {
+                margin: 0 50px;
+                font-size: 20px;
+            }
+
+            .images {
+                margin: 20px;
+            }
+
+            img {
+                width: 33%;
+                height: 300px;
+                object-fit: contain;
+            }
+
+            .lists {
+                width: 5%;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            table {
+                width: 80%;
+                margin: 0 auto;
+                border-collapse: collapse;
+                margin-top: 30px;
+            }
+
+            table,
+            tr,
+            th,
+            td {
+                border: 1px solid black;
+                padding: 10px;
+            }
+
+            form {
+                border: 1px solid black;
+                width: 30%;
+                margin: 0 auto;
+                text-align: center;
+                padding: 10px;
+                background-color: azure;
+            }
+
+            form input,
+            button {
+                margin: 5px;
+                padding: 5px;
+                font-size: 20px;
+            }
+
+            button {
+                background-color: coral;
+                border: none;
+            }
+
+            button:hover {
+                box-shadow: 2px 2px 10px 3px lightgray;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h1><u>Shortcut to w3schools</u></h1>
+        <div class="links">
+            <a href="https://www.w3schools.com/html/default.asp">Learn Html</a>
+            <a href="https://www.w3schools.com/css/default.asp">Learn CSS</a>
+            <a href="https://www.w3schools.com/js/default.asp">Learn JavaScript</a>
+        </div>
+        <div class="images">
+            <img src="./html5-css3.png" alt="HTML and CSS" usemap="#html">
+            <img src="./js.jpeg" alt="Javascript" usemap="#js">
+            <img src="./php.jpeg" alt="PHP" usemap="#php">
+        </div>
+        <map name="html">
+            <area shape="rect" coords="0,0,300,300" href="https://www.w3schools.com/html/default.asp" alt="html and css">
+        </map>
+        <map name="js">
+            <area shape="rect" coords="0,0,300,300" href="https://www.w3schools.com/js/default.asp" alt="JS">
+        </map>
+        <map name="php">
+            <area shape="rect" coords="0,0,300,300" href="https://www.w3schools.com/php/default.asp" alt="PHP">
+        </map>
+        <h2>Lists</h2>
+        <div class="lists">
+            <div>
+                <ol>
+                    <li>Html<br>
+                        <ul>
+                            <li>tags</li>
+                            <li>attributes</li>
+                        </ul>
+                    </li>
+                    <li>CSS<br>
+                        <ul>
+                            <li>selectors</li>
+                            <li>properties</li>
+                        </ul>
+                    </li>
+                    <li>JavaScript<br>
+                        <ul>
+                            <li>Client-side</li>
+                            <li>Server-side</li>
+                        </ul>
+                    </li>
+                    <li>Backend<br>
+                        <ul>
+                            <li>python</li>
+                            <li>Java</li>
+                            <li>ASP</li>
+                            <li>PHP</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <h2>Web tech</h2>
+        <table>
+            <tr>
+                <th>Frontend</th>
+                <th colspan="2">Backend</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Html</td>
+                <td colspan="2">JavaScript</td>
+            </tr>
+            <tr>
+                <td>Js</td>
+                <td>Node.js</td>
+            </tr>
+            <tr>
+                <td rowspan="2">CSS</td>
+                <td colspan="2">Database mangement</td>
+            </tr>
+            <tr>
+                <td>Python</td>
+                <td>Java</td>
+            </tr>
+        </table>
+        <h2>Student form</h2>
+        <form>
+            <input name="fname" placeholder="First name" /><br>
+            <input name="lname" placeholder="Last name" /><br>
+            <input name="reg" placeholder="Register no" type="number" /><br>
+            <input name="class" placeholder="Class" /><br>
+            <input name="email" placeholder="Email" type="email" /><br>
+            <button>Submit</button>
+        </form>
+    </body>
+
+</html>
