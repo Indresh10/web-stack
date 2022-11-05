@@ -6,20 +6,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Shortcut to w3schools</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&display=swap" rel="stylesheet">
         <style>
             h1 {
                 text-align: center;
-                font-size: 40px;
+                font-size: 4em;
+                font-family: 'Kolker Brush', cursive;
+                color: #00a200;
             }
 
             .links {
-                width: 50%;
+                width: 35%;
                 margin: 0 auto;
+                background-color: cornsilk;
             }
 
             .links a {
                 margin: 0 50px;
                 font-size: 20px;
+
             }
 
             .images {
@@ -78,15 +85,23 @@
                 box-shadow: 2px 2px 10px 3px lightgray;
             }
 
+            .sticky {
+                position: sticky;
+                bottom: 0;
+                right: 0;
+                background-color: #00a200;
+                padding: 20px;
+                color: aliceblue;
+            }
+
         </style>
     </head>
 
     <body>
         <h1><u>Shortcut to w3schools</u></h1>
         <div class="links">
-            <a href="https://www.w3schools.com/html/default.asp">Learn Html</a>
-            <a href="https://www.w3schools.com/css/default.asp">Learn CSS</a>
-            <a href="https://www.w3schools.com/js/default.asp">Learn JavaScript</a>
+            <a href="https://www.w3schools.com" target="_blank">Goto W3Schools</a>
+            <a href="#table">Go to Table</a>
         </div>
         <div class="images">
             <img src="./html5-css3.png" alt="HTML and CSS" usemap="#html">
@@ -107,25 +122,25 @@
             <div>
                 <ol>
                     <li>Html<br>
-                        <ul>
+                        <ul type="circle">
                             <li>tags</li>
                             <li>attributes</li>
                         </ul>
                     </li>
                     <li>CSS<br>
-                        <ul>
+                        <ul type="disc">
                             <li>selectors</li>
                             <li>properties</li>
                         </ul>
                     </li>
                     <li>JavaScript<br>
-                        <ul>
+                        <ul type="square">
                             <li>Client-side</li>
                             <li>Server-side</li>
                         </ul>
                     </li>
                     <li>Backend<br>
-                        <ul>
+                        <ul style="list-style-type: disclosure-closed;">
                             <li>python</li>
                             <li>Java</li>
                             <li>ASP</li>
@@ -136,7 +151,7 @@
             </div>
         </div>
         <h2>Web tech</h2>
-        <table>
+        <table id="table">
             <tr>
                 <th>Frontend</th>
                 <th colspan="2">Backend</th>
@@ -163,10 +178,18 @@
             <input name="fname" placeholder="First name" /><br>
             <input name="lname" placeholder="Last name" /><br>
             <input name="reg" placeholder="Register no" type="number" /><br>
-            <input name="class" placeholder="Class" /><br>
+            <label>Class:</label>
+            <input type="radio" name="class" id="A" />
+            <label for="A">2 MCA A</label>
+            <input type="radio" name="class" id="B" />
+            <label for="B">2 MCA B</label>
+            <br>
             <input name="email" placeholder="Email" type="email" /><br>
+            <label>Favorite color: <input type="color"></label><br>
+            <label>Date of Birth: <input type="date"></label><br>
             <button>Submit</button>
         </form>
+        <a href="mailto:hemaniindresh@gmail.com" style="float: right;margin :20px;" class="sticky">Mail to developer</a>
     </body>
 
 </html>
