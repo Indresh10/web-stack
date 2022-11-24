@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="staff.xsl" type="text/xsl"?>
+<stafflist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./staff.xsd">
+    <staff>
+        <id>1</id>
+        <name>Ramesh</name>
+        <hos_no>1</hos_no>
+    </staff>
+    <staff>
+        <id>2</id>
+        <name>dsfgsf</name>
+        <hos_no>2</hos_no>
+    </staff>
+    <staff>
+        <id>3</id>
+        <name>dsf</name>
+        <hos_no>3</hos_no>
+    </staff>
+    <staff>
+        <id>4</id>
+        <name>Rffg</name>
+        <hos_no>1</hos_no>
+    </staff>
+    <staff>
+        <id>5</id>
+        <name>sdg</name>
+        <hos_no>2</hos_no>
+    </staff>
+    <staff>
+        <id>6</id>
+        <name>sfgfg</name>
+        <hos_no>3</hos_no>
+    </staff>
+</stafflist>

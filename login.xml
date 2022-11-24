@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="login.xsl" type="text/xsl"?>
+<userlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="user.xsd">
+    <user>
+        <id>1</id>
+        <username>hello</username>
+        <pass>hell@1234</pass>
+    </user>
+</userlist>

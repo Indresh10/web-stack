@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="hos.xsl" type="text/xsl"?>
+<hoslist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="hos.xsd">
+    <hos>
+        <id>1</id>
+        <name>INDIRA EYE HOSPITAL</name>
+        <location>Raipur</location>
+    </hos>
+    <hos>
+        <id>2</id>
+        <name>APOLLO HOSPITAL</name>
+        <location>Raipur</location>
+    </hos>
+
+    <hos>
+        <id>3</id>
+        <name>AIIMS</name>
+        <location>Raipur</location>
+    </hos>
+
+</hoslist>

@@ -1,0 +1,18 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="doclist">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="doc" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id" type="xs:integer" />
+                            <xs:element name="name" type="xs:string" />
+                            <xs:element name="spec" type="xs:string" />
+                            <xs:element name="qual" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

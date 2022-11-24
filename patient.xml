@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="pat.xsl" type="text/xsl"?>
+<patlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./patient.xsd">
+    <patient>
+        <id>1</id>
+        <name>skhdks</name>
+        <address>Bangalore</address>
+    </patient>
+    <patient>
+        <id>5</id>
+        <name>skhfdf</name>
+        <address>Shimla</address>
+    </patient>
+    <patient>
+        <id>3</id>
+        <name>sdgfjlfdj</name>
+        <address>Hyderabad</address>
+    </patient>
+    <patient>
+        <id>2</id>
+        <name>dsfsdf</name>
+        <address>Mumbai</address>
+    </patient>
+    <patient>
+        <id>4</id>
+        <name>sfsgfg</name>
+        <address>Mysore</address>
+    </patient>
+</patlist>
