@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HMS</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </head>
+
+    <body class="bg-primary">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a href="./temp.html" class="navbar-brand">
+                    Hospital Management System
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="position-absolute top-50 start-50 translate-middle w-75">
+                <div class="card p-5">
+                    <!-- <img src="./hos.jpg" class="card-img-top" alt="hospital"> -->
+                    <div class="card-body text-center display-5" id="content">
+                        Welcome to Hospital Management System
+                    </div>
+                    <table class="table table-dark table-hover table-bordered border-light p-5 my-5" id="table">
+
+                    </table>
+                    <div class="row text-center">
+                        <div class="col-3"><button type="button" class="btn btn-outline-primary" onclick="dltblock()">Delete Block</button></div>
+                        <div class="col-3"><button type="button" class="btn btn-outline-primary" onclick="dltElement()">Delete Element</button></div>
+                        <div class="col-3"><button type="button" class="btn btn-outline-primary" onclick="change()">Change value</button></div>
+                        <div class="col-3"><button type="button" class="btn btn-outline-primary" onclick="addElement()">Add Block</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var xhttp = new XMLHttpRequest();
+            var root;
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    root = this.responseXML.documentElement;
+                    display();
+                }
+            };
+
+            xhttp.open("GET", "hos.xml", true);
+            xhttp.send();
+
+            function dltblock() {
+                let id = parseInt(prompt("Enter the id you want to remove", "0"));
+                if (root.children.length >= id && id != 0) {
+                    let removedBlock = root.removeChild(root.children[ id - 1 ]);
+                    alert("Block Deleted: " + removedBlock.innerHTML);
+                } else {
+                    alert("Id not found");
+                }
+                display();
+            }
+
+            function dltElement() {
+                let id = parseInt(prompt("Enter the id you want to remove", "0"));
+                if (root.children.length >= id && id != 0) {
+                    let currNode = root.children[ id - 1 ];
+                    let pr = prompt("Enter id/name/location", "id");
+                    if (pr != "id" && pr != "name" && pr != "location") {
+                        alert("column not found");
+                    } else {
+                        let removed = currNode.removeChild(currNode.getElementsByTagName(pr)[ 0 ]);
+                        alert("Element Deleted: " + removed.outerHTML);
+                    }
+                } else {
+                    alert("Id not found");
+                }
+                display();
+            }
+
+            function change() {
+                let id = parseInt(prompt("Enter the id you want to add", "0"));
+                if (root.children.length >= id && id != 0) {
+                    let currNode = root.children[ id - 1 ];
+                    let pr = prompt("Enter id/name/location", "id");
+                    if (pr != "id" && pr != "name" && pr != "location") {
+                        alert("column not found");
+                    } else {
+                        let chng = currNode.getElementsByTagName(pr)[ 0 ];
+                        let text = chng.childNodes[ 0 ].nodeValue;
+                        let newval = prompt("Enter New Value", "new value");
+                        chng.childNodes[ 0 ].nodeValue = newval;
+                        alert(`Element found ${text} and changed to: ` + chng.childNodes[ 0 ].nodeValue);
+                    }
+                } else {
+
+                }
+                display();
+            }
+            function addElement() {
+                let id = parseInt(prompt("Enter the id you want to remove", "0"));
+                if (root.children.length >= id && id != 0) {
+                    let currNode = root.children[ id - 1 ];
+                    let pr = prompt("Enter new element name", "hello");
+                    let newEle = document.createElement(pr);
+                    pr = prompt("Enter value of that element", "value");
+                    let text = document.createTextNode(pr);
+                    newEle.appendChild(text);
+                    currNode.appendChild(newEle);
+                    alert("Element Added:" + currNode.innerHTML);
+                } else {
+                    alert("Id not found");
+                }
+                display();
+            }
+            function display() {
+                let table = "<tr><th>ID</th><th>Name</th><th>Location</th></tr>";
+                for (var c = 0; c < root.children.length; c++) {
+                    table += "<tr>";
+
+                    for (var j = 0; j < root.children[ c ].children.length; j++) {
+                        table += `<td>${root.children[ c ].children[ j ].childNodes[ 0 ].nodeValue}</td>`;
+                    }
+                    table += "</tr>";
+                }
+                console.log(table);
+                document.getElementById("table").innerHTML = table;
+            }
+        </script>
+    </body>
+
+</html>
