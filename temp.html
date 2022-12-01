@@ -35,7 +35,7 @@
                         <div class="col-3"><button type="button" class="btn btn-outline-primary" onclick="dltblock()">Delete Block</button></div>
                         <div class="col-3"><button type="button" class="btn btn-outline-primary" onclick="dltElement()">Delete Element</button></div>
                         <div class="col-3"><button type="button" class="btn btn-outline-primary" onclick="change()">Change value</button></div>
-                        <div class="col-3"><button type="button" class="btn btn-outline-primary" onclick="addElement()">Add Block</button></div>
+                        <div class="col-3"><button type="button" class="btn btn-outline-primary" onclick="addElement()">Add Element</button></div>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                 display();
             }
             function addElement() {
-                let id = parseInt(prompt("Enter the id you want to remove", "0"));
+                let id = parseInt(prompt("Enter the id where you want to add", "0"));
                 if (root.children.length >= id && id != 0) {
                     let currNode = root.children[ id - 1 ];
                     let pr = prompt("Enter new element name", "hello");
