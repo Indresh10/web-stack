@@ -127,6 +127,19 @@
                 bottom: 10px;
             }
 
+            #img-back {
+                position: relative;
+                padding: 10px;
+            }
+
+            #img-button {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-top: 10px;
+            }
+
         </style>
         <script src="./index.js" defer></script>
     </head>
@@ -164,8 +177,14 @@
                         <div class="modal-content text-bg-light" id="modal">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Profile</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
                             </div>
                             <div class="modal-body">
+                                <div class="text-center" id="img-back">
+                                    <img src="./account.png" alt="profile pic" class="img-thumbnail mb-2" width="125" height="125" id="profile">
+                                    <button class="btn btn-secondary btn-sm rounded-pill" id="img-button">change</button>
+                                    <input type="file" class="d-none" id="image" accept="image/jpg,image/png">
+                                </div>
                                 <label class="form-label" for="name">Full name</label>
                                 <div class="input-group px-2 mb-3">
                                     <input type="text" class="form-control" id="name" placeholder="Your name" disabled>
@@ -193,7 +212,6 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" id="edit">Edit</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
                             </div>
                         </div>
                     </div>
@@ -208,13 +226,13 @@
                         <input type="text" class="form-control" placeholder="#000000" id="fcolor-text" value="#000000">
                         <input type="color" id="fcolor-col">
                     </div>
-                    <div class="row p-2 row-cols-md-2">
-                        <div class="col-8 col-md-10 py-2 "><input type="range" min="0" max="100" step="1" id="range" class="form-range"></div>
+                    <div class="row px-2 row-cols-md-2 mb-2">
+                        <div class="col-8 col-md-10 py-2 "><input type="range" min="0" max="100" step="1" id="range" class="form-range" value="50"></div>
                         <div class="col-2 col-md-2 py-2 mr-2">
                             <span id="rvalue" class="text-start">100</span>
                         </div>
                         <div class="col-2 col-md-12 text-center">
-                            <button id="switch" class="btn btn-outline-dark">Switch</button>
+                            <button id="switch" class="btn btn-outline-dark w-100">Switch</button>
                         </div>
                     </div>
                     <label class="form-label" for="scolor-text">Enter Second color</label>

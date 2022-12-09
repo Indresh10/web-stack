@@ -18,6 +18,8 @@ var email = document.getElementById("email");
 var theme = document.getElementById("theme");
 var modal = document.getElementById("modal");
 var del = document.getElementsByClassName("delete");
+var profile = document.getElementById("profile");
+var clos = document.getElementById("close");
 var curTheme = "light";
 range.onchange = () => {
     rvalue.innerText = `${range.value}%`;
@@ -51,6 +53,7 @@ function themeSwitch() {
         t_head.classList.add("text-bg-dark");
         modal.classList.remove("text-bg-light");
         modal.classList.add("text-bg-dark");
+        clos.classList.add("btn-close-white");
         theme_sw.src = "./light_mode.png";
         curTheme = "light";
     } else {
@@ -71,6 +74,7 @@ function themeSwitch() {
         t_head.classList.add("text-bg-light");
         modal.classList.remove("text-bg-dark");
         modal.classList.add("text-bg-light");
+        clos.classList.remove("btn-close-white");
         theme_sw.src = "./dark_mode.png";
         curTheme = "dark";
     }
@@ -189,17 +193,20 @@ function getSessionStorage() {
     col1 = sessionStorage.getItem("col1");
     col2 = sessionStorage.getItem("col2");
     rng = sessionStorage.getItem("rng");
+    let prof = localStorage.getItem("profile");
     if (grad == null) grad = "linear-gradient";
     if (ang == null) ang = "0";
     if (col1 == null) col1 = "#000000";
     if (col2 == null) col2 = "#ffffff";
     if (rng == null) rng = "0";
+    if (prof == null) prof = "./account.png";
     fcolor.value = col1;
     fcolortext.value = col1;
     scolor.value = col2;
     scolortext.value = col2;
     angle.value = ang;
     gselect.value = grad;
+    profile.src = prof;
     if (grad == "radial-gradient")
         dangle.classList.add("d-none");
     range.value = rng;
@@ -311,4 +318,21 @@ edit.onclick = () => {
         themeSwitch();
         edit.innerText = "Edit";
     }
+};
+
+var image = document.getElementById("image");
+var img_btn = document.getElementById("img-button");
+const reader = new FileReader();
+img_btn.onclick = () => { image.click(); };
+image.onchange = () => {
+    if (image.files[ 0 ] && (image.files[ 0 ].name.endsWith(".png") || image.files[ 0 ].name.endsWith(".jpg"))) {
+        reader.readAsDataURL(image.files[ 0 ]);
+    } else if (image.files[ 0 ]) {
+        alert("invalid file");
+    }
+};
+
+reader.onload = () => {
+    localStorage.setItem("profile", reader.result);
+    profile.src = reader.result;
 };
