@@ -1,0 +1,31 @@
+{
+  "hoslist": {
+    "hos": [
+      {
+        "id": "1",
+        "name": "INDIRA EYE HOSPITAL",
+        "location": "Raipur"
+      },
+      {
+        "id": "2",
+        "name": "APOLLO HOSPITAL",
+        "location": "Raipur"
+      },
+      {
+        "id": "3",
+        "name": "AIIMS",
+        "location": "Raipur"
+      },
+      {
+        "id": "4",
+        "name": "FORTIS HOSPITAL",
+        "location": "Banglore"
+      },
+      {
+        "id": "5",
+        "name": "PEOPLE TREE HOSPITAL",
+        "location": "Banglore"
+      }
+    ]
+  }
+}
