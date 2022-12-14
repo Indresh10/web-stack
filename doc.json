@@ -1,0 +1,28 @@
+{
+  "doc": [
+    {
+      "id": "1",
+      "name": "AYAN",
+      "spec": "bone",
+      "qual": "MBBS MDS"
+    },
+    {
+      "id": "2",
+      "name": "ROHAN",
+      "spec": "heart",
+      "qual": "MBBS MDS"
+    },
+    {
+      "id": "3",
+      "name": "RAHUL",
+      "spec": "skin",
+      "qual": "MBBS MDS"
+    },
+    {
+      "id": "4",
+      "name": "ROHIT",
+      "spec": "bone",
+      "qual": "MBBS MDS"
+    }
+  ]
+}

@@ -1,12 +1,53 @@
-var app = angular.module('hosApp', []);
+var app = angular.module('hosApp', [ 'ngRoute' ]);
 var data;
-app.controller('hosCntl', ($scope, $http) => {
+app.config(function ($routeProvider) {
+    $routeProvider
+        .when("/", {
+            templateUrl: "home.htm"
+        })
+        .when("/hos", {
+            templateUrl: "hospital.htm",
+            controller: "hosCntl"
+        })
+        .when("/doc", {
+            templateUrl: "doctor.htm",
+            controller: "docCntl"
+        })
+        .when("/pat", {
+            templateUrl: "pat.htm",
+            controller: "patCntl"
+        });
+});
+app.controller('hosCntl', function ($scope, $http) {
     $scope.selected = "name";
     $scope.keys = [ "name", "location" ];
+    $scope.title = "Hospital";
     $http.get("hos.json")
         .then((resp) => {
             $scope.Data = resp.data.hoslist.hos;
             data = resp.data.hoslist;
+        });
+});
+
+app.controller('docCntl', function ($scope, $http) {
+    $scope.selected = "name";
+    $scope.keys = [ "name", "spec" ];
+    $scope.title = "Doctors";
+    $http.get("doc.json")
+        .then((resp) => {
+            $scope.Data = resp.data.doc;
+            data = resp.data;
+        });
+});
+
+app.controller('patCntl', function ($scope, $http) {
+    $scope.selected = "name";
+    $scope.keys = [ "name", "address" ];
+    $scope.title = "Patients";
+    $http.get("pat.json")
+        .then((resp) => {
+            $scope.Data = resp.data.pats;
+            data = resp.data;
         });
 });
 function clr() {
@@ -26,8 +67,11 @@ app.filter('togglecase', () => {
 
 app.filter('color', () => {
     return (x) => {
-        if (x == "Raipur") return "bg-info";
-        else return "bg-primary";
+        if (x == "Raipur" || x == "bone") return "text-bg-info";
+        else if (x == "Shimla" || x == "heart") return "text-bg-danger";
+        else if (x == "skin") return "text-bg-warning";
+        else if (x == "Bangalore") return "text-bg-primary";
+
     };
 });
 app.filter('jsonfilter', () => {
@@ -42,7 +86,11 @@ app.filter('jsonfilter', () => {
             } else if (dat[ 0 ] == "location") {
                 if (element.location.startsWith(dat[ 1 ].toUpperCase())) y.push(element);
             }
-
+            else if (dat[ 0 ] == "spec") {
+                if (element.spec.startsWith(dat[ 1 ])) y.push(element);
+            } else if (dat[ 0 ] == "address") {
+                if (element.address.toUpperCase().startsWith(dat[ 1 ].toUpperCase())) y.push(element);
+            }
         });
         return y;
 
