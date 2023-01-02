@@ -56,6 +56,7 @@ function themeSwitch() {
         clos.classList.add("btn-close-white");
         theme_sw.src = "./light_mode.png";
         curTheme = "light";
+        setCookie("theme", "light");
     } else {
         //light mode
         card.classList.remove("text-bg-dark");
@@ -77,7 +78,9 @@ function themeSwitch() {
         clos.classList.remove("btn-close-white");
         theme_sw.src = "./dark_mode.png";
         curTheme = "dark";
+        setCookie("theme", "dark");
     }
+    theme.value = getCookie("theme");
 };
 
 var fcolor = document.getElementById("fcolor-col");
@@ -309,6 +312,7 @@ edit.onclick = () => {
         age.disabled = true;
         email.disabled = true;
         theme.disabled = true;
+
         setCookie("name", Name.value);
         setCookie("age", age.value);
         setCookie("email", email.value);
