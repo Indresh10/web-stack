@@ -1,18 +1,35 @@
 <div class="container mt-3">
-    <h1 class="display-5">Notes</h1>
+    <div>
+        <h1 class="display-5 d-inline">Notes</h1>
+    </div>
     <hr>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-        <div class="col p-3">
-            <div class="card">
-                <div class="card-header">
-                    Title
-                    <button class="btn btn-outline-dark p-1 float-end">
-                        delete
-                    </button>
+    <div class="row justify-content-end">
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <input type="text" class="form-control" placeholder="Search by title" ng-model="srchtitle">
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+
+        <div class="col p-3 text-center" ng-repeat="note in notes|filter:{title:srchtitle}">
+            <div class="card shadow-sm text-start" style="height: 200px;" ng-click="goto(note.id);">
+                <div class="card-header bg-transparent" style="font-size: 1.5rem;">{{note.title}}
+
                 </div>
-                <div class="card-body">
-                    <div class="card-text">
-                        Description
+                <div class="card-body border-dark">
+                    <div class="card-text" style="text-overflow: ellipsis;">
+                        {{note.desc}}
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-dark mt-3" type="button" ng-click="del(note.id)">
+                Delete
+            </button>
+        </div>
+        <div class="col p-3">
+            <div class="card shadow-sm text-bg-secondary" style="height: 200px;" ng-click="goto(-1);">
+                <div class="card-body border-dark">
+                    <div class="card-text h-100 d-flex align-items-center justify-content-center">
+                        <h1 class="display-6 ">ADD</h1>
                     </div>
                 </div>
             </div>
