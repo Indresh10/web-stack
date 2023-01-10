@@ -26,18 +26,22 @@ app.all("/user", (req, res) => {
         case "GET":
             if (Object.keys(req.query).length == 0) {
                 con.query("Select * from user order by uid", (err, result) => {
-                    if (err) res.status(404).end("Error");
                     if (debug) console.log(result);
-                    res.status(200).send(result);
+                    if (err)
+                        res.status(404).end("Error");
+                    else
+                        res.status(200).send(result);
                 });
             } else {
                 que = Object.entries(req.query);
                 console.log(que);
                 sql = `select * from user where ${que[ 0 ][ 0 ]} like '%${que[ 0 ][ 1 ]}%' order by uid`;
                 con.query(sql, (err, result) => {
-                    if (err) res.status(404).end("Error");
                     if (debug) console.log(result);
-                    res.status(200).send(result);
+                    if (err)
+                        res.status(404).end("Error");
+                    else
+                        res.status(200).send(result);
                 });
             }
             break;
@@ -47,10 +51,11 @@ app.all("/user", (req, res) => {
             sql = "insert into user values (?)";
             values = [ null, req.body.uname, req.body.pass, req.body.type, req.body.email, req.body.phone ];
             con.query(sql, [ values ], (err, result) => {
-                if (err) res.status(500).end("Error");
                 if (debug) console.log(result);
-                if (result.affectedRows == 1)
-                    res.sendStatus(201);
+                if (err)
+                    res.status(500).end("Error");
+                else
+                    if (result.affectedRows == 1) res.sendStatus(201);
             });
             break;
         case "PUT":
@@ -64,18 +69,22 @@ app.all("/user", (req, res) => {
                 where uid = ${uid}
              `;
             con.query(sql, (err, result) => {
-                if (err) res.status(409).end("User not exists");
                 if (debug) console.log(result);
-                res.sendStatus(200);
+                if (err)
+                    res.status(500).end("Error");
+                else
+                    res.sendStatus(200);
             });
             break;
         case "DELETE":
             uid = req.query.uid;
             sql = `delete from user where uid = ${uid}`;
             con.query(sql, (err, result) => {
-                if (err) res.status(409).end("User doesn't exists");
                 if (debug) console.log(result);
-                res.sendStatus(200);
+                if (err)
+                    res.status(500).end("Error");
+                else
+                    res.sendStatus(200);
             });
             break;
         default:

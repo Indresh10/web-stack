@@ -13,6 +13,8 @@ app.controller("ctrl", ($scope, $http) => {
                 else $scope.current = null;
                 disable(true);
                 setTemp();
+            }, (err) => {
+                alert(err.data);
             });
     };
     getData();
@@ -36,6 +38,8 @@ app.controller("ctrl", ($scope, $http) => {
                 else $scope.current = null;
                 disable(true);
                 setTemp();
+            }, (err) => {
+                alert(err.data);
             });
     };
 
@@ -86,6 +90,8 @@ app.controller("ctrl", ($scope, $http) => {
                     if (debug) console.log(res);
                     getData();
                     $scope.setMode('cancel');
+                }, (err) => {
+                    alert(err.data);
                 });
             }
             if ($scope.mode == "edit") {
@@ -95,6 +101,8 @@ app.controller("ctrl", ($scope, $http) => {
                     if (debug) console.log(res);
                     getData();
                     $scope.setMode('cancel');
+                }, (err) => {
+                    alert(err.data);
                 });
             }
         }
@@ -108,6 +116,8 @@ app.controller("ctrl", ($scope, $http) => {
                 .then((res) => {
                     if (debug) console.log(res);
                     getData();
+                }, (err) => {
+                    alert(err.data);
                 });
         }
     };
