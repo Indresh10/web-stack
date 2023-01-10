@@ -23,22 +23,22 @@
                     <form class="px-3">
                         <div class="mb-3">
                             <label for="uname" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="uname" name="uname" placeholder="User Name" autocomplete="username" value="{{temp.uname}}">
+                            <input type="text" class="form-control" id="uname" name="uname" placeholder="User Name" autocomplete="username" ng-model="temp.uname">
                             <span class="invalid-feedback">*required</span>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" autocomplete="email" value="{{temp.email}}">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" autocomplete="email" ng-model="temp.email">
                             <span class="invalid-feedback" id="invalid-email">*required</span>
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Mobile No</label>
-                            <input type="tel" pattern="[0-9]{10}" class="form-control" id="phone" name="phone" placeholder="1234567890" autocomplete="tel" value="{{temp.phone}}">
+                            <input type="tel" pattern="[0-9]{10}" class="form-control" id="phone" name="phone" placeholder="1234567890" autocomplete="tel" ng-model="temp.phone">
                             <span class="invalid-feedback" id="invalid-phone">*required</span>
                         </div>
                         <div class="mb-3">
                             <label for="type" class="form-label">User Type</label>
-                            <select class="form-select" id="type" name="type">
+                            <select class="form-select" id="type" name="type" ng-model="temp.type">
                                 <option value="" selected disabled></option>
                                 <option value="adm">Admin</option>
                                 <option value="hos">Hospital</option>
@@ -49,12 +49,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="pass" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="pass" name="pass" placeholder="Password" autocomplete="new-password" value="{{temp.pass}}">
+                            <input type="password" class="form-control" id="pass" name="pass" placeholder="Password" autocomplete="new-password" ng-model="temp.pass">
                             <span class="invalid-feedback">*required</span>
                         </div>
                         <div class="mb-3">
                             <label for="confpass" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="confpass" name="confpass" placeholder="Confirm Password" autocomplete="new-password" value="{{conf}}">
+                            <input type="password" class="form-control" id="confpass" name="confpass" placeholder="Confirm Password" autocomplete="new-password" ng-model="conf">
                             <span class="invalid-feedback" id="invalid-confpass">*required</span>
                         </div>
 

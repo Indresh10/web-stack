@@ -18,7 +18,8 @@ app.controller("ctrl", ($scope, $http) => {
     getData();
     setTemp = () => {
         $scope.temp = $scope.data[ $scope.current ];
-        $scope.conf = $scope.data[ $scope.current ].pass;
+        if ($scope.current == null) $scope.conf = "";
+        else $scope.conf = $scope.data[ $scope.current ].pass;
         document.getElementById("type").value = $scope.data[ $scope.current ].type;
     };
     $scope.resetSrch = () => {
@@ -59,7 +60,10 @@ app.controller("ctrl", ($scope, $http) => {
 
     $scope.setMode = (mode) => {
         $scope.mode = mode;
-        if (mode == 'add') $scope.current = null;
+        if (mode == 'add') {
+            $scope.current = null;
+            // reset();
+        }
         if (mode == 'cancel') {
             $scope.display1 = "";
             $scope.display2 = "d-none";
@@ -253,4 +257,12 @@ function checkValidity() {
     select = document.querySelector("select");
     if (select.classList.contains("is-invalid")) validate = false;
     return validate;
+}
+
+function reset() {
+    document.querySelectorAll("input").forEach((ele, index) => {
+        ele.value = "";
+    });
+    document.querySelector("select").value = "";
+
 }
